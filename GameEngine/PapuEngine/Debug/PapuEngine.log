@@ -1,6 +1,6 @@
 ﻿  MainGame.cpp
-e:\nueva carpeta\tareas\fundamentos juegos\proyectos\papuengine\maingame.cpp(35): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-e:\nueva carpeta\tareas\fundamentos juegos\proyectos\papuengine\maingame.cpp(117): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
-e:\nueva carpeta\tareas\fundamentos juegos\proyectos\papuengine\maingame.cpp(133): warning C4305: 'initializing': truncation from 'double' to 'float'
-  PapuEngine.vcxproj -> E:\Nueva carpeta\Tareas\Fundamentos Juegos\Proyectos\Debug\PapuEngine.exe
-  PapuEngine.vcxproj -> E:\Nueva carpeta\Tareas\Fundamentos Juegos\Proyectos\Debug\PapuEngine.pdb (Partial PDB)
+e:\nueva carpeta\tareas\fundamentos juegos\engine\papuengine\maingame.cpp(37): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+e:\nueva carpeta\tareas\fundamentos juegos\engine\papuengine\maingame.cpp(132): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
+e:\nueva carpeta\tareas\fundamentos juegos\engine\papuengine\maingame.cpp(148): warning C4305: 'initializing': truncation from 'double' to 'float'
+  PapuEngine.vcxproj -> E:\Nueva carpeta\Tareas\Fundamentos Juegos\Engine\Debug\PapuEngine.exe
+  PapuEngine.vcxproj -> E:\Nueva carpeta\Tareas\Fundamentos Juegos\Engine\Debug\PapuEngine.pdb (Partial PDB)

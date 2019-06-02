@@ -16,6 +16,8 @@ Level::Level(const string &fileName)
 	file >> tmp >> numHumans;
 
 	getline(file, tmp);
+	file >> tmp >> numZombies;
+	getline(file, tmp);
 	while (getline(file, tmp)) {
 		levelData.push_back(tmp);
 	}

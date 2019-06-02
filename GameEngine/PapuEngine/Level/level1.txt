@@ -1,4 +1,5 @@
 Humans: 200
+Zombies: 50
 RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
 R..............................................................................................................R
 R.@............................................................................................................R
