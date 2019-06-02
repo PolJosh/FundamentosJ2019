@@ -25,9 +25,11 @@ void MainGame::initLevel() {
 	levels.push_back(new Level("Level/level1.txt"));
 	spritebatch.init();
 	player = new Player();
+
 	playertexture = "Textures/circle.png";
 	humantexture = "Textures/circle.png";
 	zombietexture = "Textures/zombie.png";
+
 	player->init(10.0f, 
 			levels[currentLevel]->getPlayerPosition(),
 		&inputManager);
@@ -47,6 +49,15 @@ void MainGame::initLevel() {
 		glm::vec2 pos(randomX(randomEngine)*TILE_WIDTH,
 			randomY(randomEngine)*TILE_WIDTH);
 		humans.back()->init(10.0f, pos);
+
+	}
+	for (int i = 0; i <
+		levels[currentLevel]->getNumZombies(); i++)
+	{
+		zombies.push_back(new Zombie());
+		glm::vec2 pos(randomX(randomEngine)*TILE_WIDTH,
+			randomY(randomEngine)*TILE_WIDTH);
+		zombies.back()->init(3.0f, pos);
 
 	}
 }
@@ -91,6 +102,10 @@ void MainGame::draw() {
 	{
 		humans[i]->draw(spritebatch, humantexture);
 	}
+	for (size_t i = 0; i < zombies.size(); i++)
+	{
+		zombies[i]->draw(spritebatch, zombietexture);
+	}
 	player->draw(spritebatch, playertexture);
 	spritebatch.end();
 	spritebatch.renderBatch();
@@ -131,7 +146,7 @@ void MainGame::procesInput() {
 void MainGame::handleInput()
 {
 	const float CAMERA_SPEED = 0.02;
-	const float SCALE_SPEED = 0.001f;
+	const float SCALE_SPEED = 0.005f;
 	/*if (inputManager.isKeyPressed(SDLK_w)) {
 		_camera.setPosition(_camera.getPosition() 
 					+glm::vec2(0.0, CAMERA_SPEED));
@@ -187,6 +202,11 @@ void MainGame::updateElements() {
 	for (size_t i = 0; i < humans.size(); i++)
 	{
 		humans[i]->update(levels[currentLevel]->getLevelData(),
+			humans, zombies);
+	}
+	for (size_t i = 0; i < zombies.size(); i++)
+	{
+		zombies[i]->update(levels[currentLevel]->getLevelData(),
 			humans, zombies);
 	}
 }
