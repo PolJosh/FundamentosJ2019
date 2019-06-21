@@ -1,6 +1,7 @@
-﻿  MainGame.cpp
-e:\nueva carpeta\tareas\fundamentos juegos\engine\papuengine\maingame.cpp(37): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-e:\nueva carpeta\tareas\fundamentos juegos\engine\papuengine\maingame.cpp(132): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
-e:\nueva carpeta\tareas\fundamentos juegos\engine\papuengine\maingame.cpp(148): warning C4305: 'initializing': truncation from 'double' to 'float'
-  PapuEngine.vcxproj -> E:\Nueva carpeta\Tareas\Fundamentos Juegos\Engine\Debug\PapuEngine.exe
-  PapuEngine.vcxproj -> E:\Nueva carpeta\Tareas\Fundamentos Juegos\Engine\Debug\PapuEngine.pdb (Partial PDB)
+﻿  PlayScreen.cpp
+e:\proyectos\tarea3\papuengine\papuengine\playscreen.cpp(64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+e:\proyectos\tarea3\papuengine\papuengine\playscreen.cpp(77): warning C4018: '<': signed/unsigned mismatch
+e:\proyectos\tarea3\papuengine\papuengine\playscreen.cpp(85): warning C4305: '+=': truncation from 'double' to 'float'
+e:\proyectos\tarea3\papuengine\papuengine\playscreen.cpp(145): warning C4101: 'buffer': unreferenced local variable
+  PapuEngine.vcxproj -> E:\Proyectos\Tarea3\PapuEngine\Debug\PapuEngine.exe
+  PapuEngine.vcxproj -> E:\Proyectos\Tarea3\PapuEngine\Debug\PapuEngine.pdb (Partial PDB)
