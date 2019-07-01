@@ -80,9 +80,9 @@ void MenuScreen::draw() {
 	_spriteBatch.begin();
 	background->draw(_spriteBatch);
 	button->draw(_spriteBatch);
-	sprintf(buffer, " ARREGLANDO EL BUG");
+	sprintf(buffer, "Invasores del Espacio");
 	_spriteFont->draw(_spriteBatch, buffer,
-		glm::vec2(250, 100), glm::vec2(0.5), 0.0f,
+		glm::vec2(230, 400), glm::vec2(0.5), 0.0f,
 		ColorRGBA(255, 255, 255, 255));
 	_spriteBatch.end();
 	_spriteBatch.renderBatch();

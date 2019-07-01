@@ -6,6 +6,8 @@ class Gamer : public Agent
 {
 private:
 	InputManager* inputManager;
+	bool shoot;
+	int recovery;
 public:
 	Gamer(float agent_width,
 			float agent_height,
@@ -28,6 +30,9 @@ public:
 	}
 	float getHeight() {
 		return _agent_height;
+	}
+	bool getShoot() {
+		return shoot;
 	}
 	void changeTexture(std::string texturePath) {
 		_texturePath = texturePath;

@@ -7,6 +7,7 @@
 #include "GLTexture.h"
 #include "Gamer.h"
 #include "EnemyA.h"
+#include "Bullet.h"
 #include "Background.h"
 
 class PlayScreen: public IGameScreen
@@ -16,6 +17,7 @@ private:
 	GLS_Program _program;
 	Gamer* player;
 	vector<EnemyA*> enemiesA;
+	vector<Bullet*> bullets;
 	Camera2D _camera2D;
 	Window* _window = nullptr;
 	SpriteBatch _spriteBatch;

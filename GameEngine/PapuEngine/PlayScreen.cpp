@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "MyScreens.h"
 #include "EnemyA.h"
+#include "Bullet.h"
 #include <random>
 
 
@@ -49,7 +50,7 @@ void PlayScreen::onEntry() {
 		_window->getScreenHeight() / 2.0f));
 	_spriteBatch.init();
 
-	player = new Gamer(106, 79,
+	player = new Gamer(50, 40,
 		glm::vec2(200, 200), "Textures/Player.png", 
 		&_game->_inputManager);
 
@@ -75,7 +76,7 @@ void PlayScreen::checkScreenExit() {
 
 void PlayScreen::checkEnemyExit() {
 	for (int i = 0; i < enemiesA.size(); i++) {
-		if (enemiesA[i]->getPosition().y /*+ enemiesA[i]->getHeight()*/ < 0) {
+		if (enemiesA[i]->getPosition().y + enemiesA[i]->getHeight() < 0) {
 			enemiesA.erase(enemiesA.begin() + i);
 		}
 	}
@@ -85,7 +86,7 @@ void PlayScreen::checkTimer() {
 	timer += 0.01;
 	int r = 1 + (rand() % static_cast<int>(_window->getScreenWidth() - 60 + 1));
 	if (timer >= 2) {
-		enemiesA.push_back(new EnemyA(100,66,
+		enemiesA.push_back(new EnemyA(60,40,
 			glm::vec2(r, 400),
 			&_game->_inputManager));
 		timer = 0;
@@ -95,9 +96,22 @@ void PlayScreen::checkTimer() {
 void PlayScreen::update(){
 	_camera2D.update();
 	player->update();
+
+	if (player->getShoot()) {
+		glm::vec2 bulPos = player->getPosition();
+		bulPos.x += player->getWidth() / 2;
+		bulPos.y += player->getHeight();
+		bullets.push_back(new Bullet(10, 10,bulPos,
+			&_game->_inputManager,1,2.0f,0));
+	}
+
 	for (size_t i = 0; i < enemiesA.size(); i++)
 	{
 		enemiesA[i]->update();
+	}
+	for (size_t i = 0; i < bullets.size(); i++)
+	{
+		bullets[i]->update();
 	}
 	checkTimer();
 	checkEnemyExit();
@@ -128,6 +142,10 @@ void PlayScreen::draw() {
 	for (size_t i = 0; i < enemiesA.size(); i++)
 	{
 		enemiesA[i]->draw(_spriteBatch);
+	}
+	for (size_t i = 0; i < bullets.size(); i++)
+	{
+		bullets[i]->draw(_spriteBatch);
 	}
 	player->draw(_spriteBatch);
 	_spriteBatch.end();
