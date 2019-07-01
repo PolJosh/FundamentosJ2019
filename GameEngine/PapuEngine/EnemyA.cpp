@@ -7,7 +7,7 @@ EnemyA::EnemyA(float agent_width,
 	glm::vec2 position) :
 	Agent(agent_width, agent_height, position, "Textures/enemyA.png")
 {
-	bulletFrequency = 18;
+	bulletTimer = 0;
 	shoot = false;
 }
 
@@ -18,16 +18,23 @@ EnemyA::EnemyA(float agent_width,
 ) :Agent(agent_width, agent_height, position, "Textures/enemyA.png") 
 {
 	inputManager = _inputmanager;
-	bulletFrequency = 18;
+	bulletTimer = 0;
 	shoot = false;
 }
 
 void EnemyA::update() {
-		_position.y -= 2.0f;
-		if (bulletFrequency < 18){
-			shoot = true;
-			bulletFrequency = 0;
+		_position.y -= 0.5f;
+
+		if (bulletTimer >= 10.0){
+			bulletTimer = 0;
 		}
+		else {
+			bulletTimer+= 0.1;
+		}
+}
+
+void EnemyA::setTimer() {
+	bulletTimer = 0;
 }
 
 std::string EnemyA::getTexture() {

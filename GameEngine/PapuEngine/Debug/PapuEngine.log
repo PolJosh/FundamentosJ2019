@@ -1,4 +1,11 @@
-﻿  Gamer.cpp
-e:\proyectos\fundamentosj2019\gameengine\papuengine\gamer.cpp(45): warning C4553: '==': operator has no effect; did you intend '='?
+﻿  PlayScreen.cpp
+e:\proyectos\fundamentosj2019\gameengine\papuengine\playscreen.cpp(65): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+e:\proyectos\fundamentosj2019\gameengine\papuengine\playscreen.cpp(78): warning C4018: '<': signed/unsigned mismatch
+e:\proyectos\fundamentosj2019\gameengine\papuengine\playscreen.cpp(86): warning C4305: '+=': truncation from 'double' to 'float'
+e:\proyectos\fundamentosj2019\gameengine\papuengine\playscreen.cpp(87): warning C4305: '+=': truncation from 'double' to 'float'
+e:\proyectos\fundamentosj2019\gameengine\papuengine\playscreen.cpp(199): warning C4101: 'buffer': unreferenced local variable
+  EnemyA.cpp
+e:\proyectos\fundamentosj2019\gameengine\papuengine\enemya.cpp(32): warning C4305: '+=': truncation from 'double' to 'float'
+  Generating Code...
   PapuEngine.vcxproj -> E:\Proyectos\FundamentosJ2019\GameEngine\Debug\PapuEngine.exe
   PapuEngine.vcxproj -> E:\Proyectos\FundamentosJ2019\GameEngine\Debug\PapuEngine.pdb (Partial PDB)

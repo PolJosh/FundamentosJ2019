@@ -9,7 +9,7 @@ Gamer::Gamer(float agent_width,
 	Agent(agent_width,agent_height,position,texture)
 {
 	shoot = false;
-	recovery = 0;
+	recovery = 8;
 }
 
 Gamer::Gamer(float agent_width,
@@ -20,7 +20,7 @@ Gamer::Gamer(float agent_width,
 ) :Agent(agent_width, agent_height, position, texture) {
 	inputManager = _inputmanager;
 	shoot = false;
-	recovery = 0;
+	recovery = 8;
 }
 
 void Gamer::update() {
@@ -42,12 +42,8 @@ void Gamer::update() {
 
 	if (inputManager->isKeyDown(SDLK_SPACE) && recovery >= 8) {
 		shoot = true;
-		recovery == 0;
 	}
 	else { shoot = false; }
-
-	if (recovery < 8)
-		recovery++;
 }
 
 std::string Gamer::getTexture() {

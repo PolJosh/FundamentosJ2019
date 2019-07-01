@@ -6,7 +6,7 @@ class EnemyA : public Agent
 {
 private:
 	InputManager* inputManager;
-	int bulletFrequency;
+	float bulletTimer;
 	bool shoot;
 public:
 	EnemyA(float agent_width,
@@ -29,9 +29,10 @@ public:
 	float getHeight() {
 		return _agent_height;
 	}
-	bool getShoot() {
-		return shoot;
+	float getTimer() {
+		return bulletTimer;
 	}
+	void setTimer();
 	std::string getTexture();
 	void changeTexture(std::string texturePath) {
 		_texturePath = texturePath;

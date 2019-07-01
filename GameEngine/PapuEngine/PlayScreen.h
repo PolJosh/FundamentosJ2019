@@ -25,6 +25,8 @@ private:
 	Camera2D _hudCamera;
 	void drawHUD();
 	float timer=0;
+	float playerTimer=2.0;
+
 public:
 	PlayScreen(Window* window);
 	virtual void build() override;

@@ -84,12 +84,42 @@ void PlayScreen::checkEnemyExit() {
 
 void PlayScreen::checkTimer() {
 	timer += 0.01;
+	playerTimer += 0.1;
+
 	int r = 1 + (rand() % static_cast<int>(_window->getScreenWidth() - 60 + 1));
+
 	if (timer >= 2) {
 		enemiesA.push_back(new EnemyA(60,40,
 			glm::vec2(r, 400),
 			&_game->_inputManager));
 		timer = 0;
+	}
+
+	if (player->getShoot() && playerTimer >= 1.5) {
+
+		glm::vec2 bulPos = player->getPosition();
+		bulPos.x += player->getWidth() / 2;
+		bulPos.y += player->getHeight();
+
+		bullets.push_back(new Bullet(10, 10, bulPos,
+			&_game->_inputManager, 1, 2.0f, 0));
+
+		playerTimer = 0;
+	}
+
+	for (size_t i = 0; i < enemiesA.size(); i++)
+	{
+		if (enemiesA[i]->getTimer() >= 10.0) {
+
+			glm::vec2 bulP = enemiesA[i]->getPosition();
+			bulP.x += (enemiesA[i]->getWidth() / 2) - 2;
+			bulP.y -= 1;
+
+			bullets.push_back(new Bullet(10, 10, bulP,
+				&_game->_inputManager, -1, 1.0f, 1));
+
+			enemiesA[i]->setTimer();
+		}
 	}
 }
 
@@ -97,12 +127,18 @@ void PlayScreen::update(){
 	_camera2D.update();
 	player->update();
 
-	if (player->getShoot()) {
+	
+
+	if (player->getShoot() && playerTimer >= 8) {
+
 		glm::vec2 bulPos = player->getPosition();
 		bulPos.x += player->getWidth() / 2;
 		bulPos.y += player->getHeight();
-		bullets.push_back(new Bullet(10, 10,bulPos,
-			&_game->_inputManager,1,2.0f,0));
+
+		bullets.push_back(new Bullet(10, 10, bulPos,
+			&_game->_inputManager, 1, 2.0f, 0));
+
+		playerTimer = 0;
 	}
 
 	for (size_t i = 0; i < enemiesA.size(); i++)
